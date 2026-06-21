@@ -24,10 +24,13 @@ app.use(helmet());
 // ── CORS ─────────────────────────────────────────
 app.use(
   cors({
-    origin: process.env.CLIENT_URL || 'https://acadmiaflow.vercel.app',
+    origin: [
+      "http://localhost:3000",
+      "https://acadmiaflow.vercel.app"
+    ],
     credentials: true,
-    methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
-    allowedHeaders: ['Content-Type', 'Authorization'],
+    methods: ["GET","POST","PUT","PATCH","DELETE"],
+    allowedHeaders: ["Content-Type","Authorization"]
   })
 );
 
