@@ -1,6 +1,7 @@
 const jwt = require('jsonwebtoken');
 const User = require('../models/User');
 const AppError = require('../utils/AppError');
+const { ROLES } = require('../config/constants');
 
 /**
  * Protect routes — verifies JWT from the Authorization header.
@@ -57,6 +58,11 @@ const authorize = (...roles) => {
       return next(
         new AppError('Not authorized. Please log in first.', 401)
       );
+    }
+
+    // SUPER_ADMIN has full access to the system and passes all role checks
+    if (req.user.role === ROLES.SUPER_ADMIN) {
+      return next();
     }
 
     if (!roles.includes(req.user.role)) {

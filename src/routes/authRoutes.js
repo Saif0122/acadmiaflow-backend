@@ -5,6 +5,8 @@ const {
   login,
   logout,
   getMe,
+  forgotPassword,
+  resetPassword,
   signupValidation,
   loginValidation,
 } = require('../controllers/authController');
@@ -15,6 +17,8 @@ const validate = require('../middleware/validate');
 router.post('/signup', signupValidation, validate, signup);
 router.post('/login', loginValidation, validate, login);
 router.post('/logout', logout);
+router.post('/forgot-password', forgotPassword);
+router.post('/reset-password/:token', resetPassword);
 
 // Protected routes
 router.get('/me', protect, getMe);

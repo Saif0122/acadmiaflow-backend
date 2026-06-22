@@ -5,7 +5,9 @@
   "main": "src/app.js",
   "scripts": {
     "start": "node src/app.js",
-    "dev": "nodemon src/app.js"
+    "dev": "nodemon src/app.js",
+    "create-super-admin": "node scripts/createSuperAdmin.js",
+    "promote-super-admin": "node scripts/promoteUserToSuperAdmin.js"
   },
   "keywords": ["lms", "education", "api"],
   "author": "",

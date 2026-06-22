@@ -3,6 +3,7 @@
 // ──────────────────────────────────────
 
 const ROLES = {
+  SUPER_ADMIN: 'super_admin',
   ADMIN: 'admin',
   STUDENT: 'student',
   INSTRUCTOR: 'instructor',
